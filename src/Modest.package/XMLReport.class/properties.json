@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Modest",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"name",
+		"path",
+		"entity",
+		"file"
+	],
+	"name" : "XMLReport",
+	"type" : "normal"
+}
