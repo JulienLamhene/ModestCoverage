@@ -1,4 +1,4 @@
-accessing
+initialization
 loadReport
 	"This method allow to load the xmlReport of a test"
 	| xmlString document xPathEntity xPathFile idx className|
