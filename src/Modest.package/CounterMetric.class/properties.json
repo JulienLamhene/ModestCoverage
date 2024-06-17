@@ -6,11 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"name",
-		"desc",
-		"lines",
-		"counters"
+		"type",
+		"covered",
+		"missed"
 	],
-	"name" : "Method",
+	"name" : "CounterMetric",
 	"type" : "normal"
 }

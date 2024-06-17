@@ -7,6 +7,6 @@ allMethods: xPathNodeSet
 	].
 	methods := Array new: (coveredMeths size).
 	1 to: (coveredMeths size) do: [ :i | 
-		methods at: i put: ((coveredMeths at: i) attributeAt: 'name')
+		methods at: i put: (Method methodFrom: coveredMeths at: i)
 	].
 	coveredMethods at: 'methods' put: methods.
