@@ -1,4 +1,4 @@
-as yet unclassified
+initialization
 loadCounters: aXPathNodeSet
 	1 to: 4 do: [ :i |
 		| counterMet |

@@ -8,7 +8,7 @@
 	"instvars" : [
 		"name",
 		"desc",
-		"lines",
+		"startLine",
 		"counters"
 	],
 	"name" : "Method",
