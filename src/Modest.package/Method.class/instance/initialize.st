@@ -1,4 +1,4 @@
 initialization
 initialize 
 	super initialize.
-	counters := Array new: 4.
+	counters := Array new: 5.
