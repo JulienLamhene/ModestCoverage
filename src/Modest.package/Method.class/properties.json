@@ -9,7 +9,8 @@
 		"name",
 		"desc",
 		"startLine",
-		"counters"
+		"counters",
+		"lines"
 	],
 	"name" : "Method",
 	"type" : "normal"

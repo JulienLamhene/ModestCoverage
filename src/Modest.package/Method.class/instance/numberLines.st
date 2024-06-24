@@ -1,3 +1,5 @@
 accessing
 numberLines
-	^ (counters at: 2) missed asInteger + (counters at: 2) covered asInteger.
+	|counterLine|
+	counterLine := counters detect: [ :counter | counter type = 'LINE' ].
+	^ counterLine missed asInteger + counterLine covered asInteger.

@@ -4,4 +4,3 @@ lineFrom: aXPathNodeSet at: idx
 			number: ((aXPathNodeSet at: idx) attributeAt: 'nr');
 			coveredInstruction: ((aXPathNodeSet at: idx) attributeAt: 'ci');
 			missedInstruction: ((aXPathNodeSet at: idx)attributeAt: 'mi').
-	

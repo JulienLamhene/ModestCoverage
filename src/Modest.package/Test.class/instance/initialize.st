@@ -1,6 +1,6 @@
 initialization
 initialize
 	super initialize.
-	coveredLines := Dictionary new.
+	coveredLines := OrderedCollection new.
 	coveredMethods := OrderedCollection new.
 	name := ''.
