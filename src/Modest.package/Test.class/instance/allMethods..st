@@ -1,12 +1,10 @@
 accessing
 allMethods: xPathNodeSet
-	| methods coveredMeths|
+	| coveredMeths|
 	coveredMeths := xPathNodeSet select: [
 	:coveredMeth |	
 		(((coveredMeth nodeAt: 1) attributeAt: 'covered') asXMLString asString asInteger > 0)
 	].
-	methods := Array new: (coveredMeths size).
 	1 to: (coveredMeths size) do: [ :i | 
-		methods at: i put: (Method methodFrom: coveredMeths at: i)
+		coveredMethods add: (Method methodFrom: (coveredMeths at: i))
 	].
-	coveredMethods at: 'methods' put: methods.
