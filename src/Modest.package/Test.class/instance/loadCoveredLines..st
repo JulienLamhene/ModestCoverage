@@ -1,4 +1,4 @@
-accessing
+initialization
 loadCoveredLines: aXPathNodeSet
 	| lines |
 	lines := aXPathNodeSet select: [

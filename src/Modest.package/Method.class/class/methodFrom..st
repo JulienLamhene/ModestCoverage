@@ -1,9 +1,8 @@
 instance creation
 methodFrom: aXMLElement
-	"Idea for later -> methodFrom: aXMLElement"
-	Transcript show: aXMLElement nodes size;cr.
+	"Create a Method from a XMLElement"
 	^ self new
-			name: (aXMLElement attributeAt: 'name');
-			desc: (aXMLElement attributeAt: 'desc');
-			startLine: (aXMLElement attributeAt: 'line');
-			loadCounters: aXMLElement.
+		  name: (aXMLElement attributeAt: 'name');
+		  desc: (aXMLElement attributeAt: 'desc');
+		  startLine: (aXMLElement attributeAt: 'line');
+		  loadCounters: aXMLElement.
