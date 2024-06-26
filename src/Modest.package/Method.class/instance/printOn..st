@@ -1,8 +1,8 @@
 printing
 printOn: aStream
 	aStream nextPutAll: name;
-	cr;
-	nextPutAll: '{ "lines" : [ ';
+	cr";
+	nextPutAll: '{ 'lines' : [ ';
 	cr.
 	1 to: (lines size - 1) do: [:i |  
 		aStream 
@@ -13,5 +13,5 @@ printOn: aStream
 		nextPutAll: (lines last) number;
 		nextPutAll: ']';
 		cr;
-		nextPutAll: '}'.
+		nextPutAll: '}'".
 	
