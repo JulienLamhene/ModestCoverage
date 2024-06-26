@@ -1,11 +1,12 @@
 initialization
 allMethods: xPathNodeSet
-
 	| coveredMeths |
-	coveredMeths := xPathNodeSet select: [ :coveredMeth |
-		((coveredMeth nodeAt: 1) attributeAt: 'covered') asInteger > 0 ].
-	1 to: coveredMeths size do: [ :i |
-		coveredMethods add: 
-			(Method methodFrom: (coveredMeths at: i))
+	xPathNodeSet do: [ :node |
+		coveredMeths :=((node nodes 
+			select: [ :line | line name = 'method']) 
+				select: [ :cov |	(((cov nodeAt: 1) attributeAt: 'covered') asInteger > 0)]).
+		coveredMethods 
+			at: (node attributeAt: 'sourcefilename' ) 
+			put: (Method loadMethodsFrom: coveredMeths).
 	].
-	coveredMethods do: [ :meth | self loadLinesfor: meth ]
+	coveredMethods do: [ :meth | self loadLinesfor: meth ].
