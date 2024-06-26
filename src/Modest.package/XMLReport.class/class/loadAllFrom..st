@@ -3,10 +3,8 @@ loadAllFrom: aPath
 	| home aXMLCollection path|	
 	home := ((FileLocator root) / (aPath withoutPrefix: '/')).
 	path := home pathString , '/'.
-	
 	(home pathString endsWith: '/') ifFalse: [ 
 		path := path , '/'.
-		Transcript show: path; cr.
 	].
 
 	home := (home allChildren reject: [ :child | 
