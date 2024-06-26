@@ -7,3 +7,4 @@ loadReport
 	
 	entity := self document xpath: xPathEntity.
 	file := self document xpath: xPathFile.
+	self coveredClasses.
