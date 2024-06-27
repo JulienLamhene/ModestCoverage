@@ -1,8 +1,6 @@
 initialization
 loadLinesfor: aMethod
-	| lines sline idx idxEnd |
-	"Transcript show: aMethod name; show: ' number lines is : '; show: aMethod numberLines; cr."
-	lines := coveredLines at: aMethod name.
+	| sline idx idxEnd |
 	sline :=  coveredLines detect: [ :line | line number = aMethod startLine ].
 	idx := coveredLines indexOf: sline.
 	idxEnd := (idx + aMethod numberLines) - 1.
