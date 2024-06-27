@@ -6,11 +6,20 @@ printOn: aStream
 		cr;
 		nextPutAll: '{ "methods" : [ ';
 		cr.
-	coveredMethods do: [ :meth |	
+	coveredMethods associationsDo: [ :asso |	
+			|key meth|
+			key := asso key.
+			meth := asso value.
 			aStream 
-				nextPutAll: (meth printString);
-				nextPutAll: ','.
+				nextPutAll: key; 
+				nextPutAll: ' : '.
+			meth do: [ :method | 
+				aStream 
+					nextPutAll: method name; 
+					nextPutAll: ', '
 			].
+			aStream cr.
+		].
 	aStream 
 		nextPutAll: ']';
 		nextPutAll: '}'.

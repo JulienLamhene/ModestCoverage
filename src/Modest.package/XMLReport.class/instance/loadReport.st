@@ -1,9 +1,10 @@
 initialization
 loadReport
-	"By loading our report entity and file are fille with the corresponding values"
+	"The previous loadReport was adapted to only load info from the source file, this one is to also take into account that other file is used for a method"
 	| xPathEntity xPathFile |
-	xPathEntity := '//class[@name="coverage/',self fileName,'"]/method'.
-	xPathFile := '//sourcefile[@name="',self fileName,'.java"]/line'.
+	xPathEntity := '//class'.
+	xPathFile := '//sourcefile'.
 	
 	entity := self document xpath: xPathEntity.
 	file := self document xpath: xPathFile.
+	self coveredClasses.
