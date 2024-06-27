@@ -9,4 +9,4 @@ allMethods: xPathNodeSet
 			at: (node attributeAt: 'sourcefilename' ) 
 			put: (Method loadMethodsFrom: coveredMeths).
 	].
-	coveredMethods do: [ :meth | self loadLinesfor: meth ].
+"	coveredMethods do: [ :meth | self loadLinesfor: meth ]."
