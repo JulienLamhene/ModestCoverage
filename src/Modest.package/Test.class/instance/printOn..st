@@ -11,6 +11,8 @@ printOn: aStream
 			key := asso key.
 			meth := asso value.
 			aStream 
+				nextPutAll: '-';
+				tab;
 				nextPutAll: key; 
 				nextPutAll: ' : '.
 			meth do: [ :method | 
@@ -22,4 +24,23 @@ printOn: aStream
 		].
 	aStream 
 		nextPutAll: ']';
-		nextPutAll: '}'.
+		cr;
+		nextPutAll: '[ "lines" : ';
+		cr.
+	coveredLines associationsDo: [ :asso |	
+			|key meth|
+			key := asso key.
+			meth := asso value.
+			aStream 
+				nextPutAll: '-';
+				tab;
+				nextPutAll: key; 
+				nextPutAll: ' : '.
+			meth do: [ :line | 
+				aStream 
+					nextPutAll: line number; 
+					nextPutAll: ', '
+			].
+			aStream cr.
+		].
+		aStream nextPutAll: ']}'.
