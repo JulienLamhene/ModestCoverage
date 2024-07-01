@@ -4,9 +4,9 @@ sortByClass: aTestCollection
 	aTestDictionnary := Dictionary new.
 	classNames := (aTestCollection collect: [ :report | report className]) asSet.
 	classNames do: [ :className | 
-		aTestDictionnary 
+		aTestDictionnary
 			at: className put: (aTestCollection select: [:test | 
 				test className = className 
 			]).
 	].
-	^ aTestDictionnary.
+	^ self new tests: aTestDictionnary.

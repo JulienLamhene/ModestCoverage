@@ -14,5 +14,5 @@ loadAllFrom: aPath
 	aXMLCollection := OrderedCollection new.
 	home do: [ :file |
 		aXMLCollection add:
-			(self loadFrom: path on: file basename) ].
+			(XMLReport loadFrom: path on: file basename) ].
 	^ aXMLCollection
