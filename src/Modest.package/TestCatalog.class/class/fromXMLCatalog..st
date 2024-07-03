@@ -1,5 +1,5 @@
 instance creation
-fromXMLCollection: xmlCollection
+fromXMLCatalog: xmlCollection
 	"Create a collection of test from a collection of report"
 	| testCollection |
 	testCollection := OrderedCollection new.
