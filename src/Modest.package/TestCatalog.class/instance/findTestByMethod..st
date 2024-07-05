@@ -5,7 +5,9 @@ findTestByMethod: aMethod
 		test anySatisfy: [ :t | 
 			(t coveredMethods) anySatisfy: [ :method | 
 				method anySatisfy: [ :m | 
-					m name = aMethod ]
+					(m name = aMethod) & 
+					(m desc = aMethod desc)
+					]
 				]
 			]
 		]).

@@ -1,5 +1,8 @@
 accessing
 fileName
+
 	| idx |
-	idx := name asText findString: '.' startingAt: 1.
-	^ (name copyFrom: 1 to: (idx - 5)),'.java'.
+	idx := (self name includesAny: '.')
+		       ifTrue: [ (name asText findString: '.' startingAt: 1) - 5 ]
+		       ifFalse: [ (name asText findString: '_' startingAt: 1) - 1 ].
+	^ (name copyFrom: 1 to: idx) , '.java'

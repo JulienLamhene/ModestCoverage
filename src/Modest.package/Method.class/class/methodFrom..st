@@ -4,5 +4,5 @@ methodFrom: aXMLElement
 	^ self new
 		  name: (aXMLElement attributeAt: 'name');
 		  desc: (aXMLElement attributeAt: 'desc');
-		  startLine: (aXMLElement attributeAt: 'line');
+		  startLine: (aXMLElement attributeAt: 'line') asInteger;
 		  loadCounters: aXMLElement.
