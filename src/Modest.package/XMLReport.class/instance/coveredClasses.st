@@ -4,7 +4,7 @@ coveredClasses
 
 	entity := (entity select: [ :node | node nodes isNotEmpty ]) 
 		select: [ :node |
-			((node elementAt: 'counter') attributeAt: 'covered') asInteger > 0 ].
+			((node elementAt: 'counter') attributeAt: 'covered') asInteger > 0 	].
 	file := (file select: [ :node | node nodes isNotEmpty ]) 
 		select: [ :node |
-			((node elementAt: 'counter') attributeAt: 'covered') asInteger > 0 ].
+			((node elementAt: 'counter') attributeAt: 'covered') asInteger > 0 	].
