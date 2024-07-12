@@ -1,12 +1,14 @@
 accessing
 allMethodsFrom: aFile
-	| array methods names |
+	| array methods meths|
 	array := self collectMethodsFrom: aFile.
-	names := self collectOnlyNames: array.
+	meths := (array collect: [ :m | { m name. m desc } ]) asSet asOrderedCollection sorted: [ :a :b | (a at:1) < (b at:1) ].
+	"Transcript show: meths;cr."
 	methods := OrderedCollection new.
-	1 to: (names size) do: [ :i | 
-	methods add: (array detect: [ :m | 
-		m name = (names at:i) 
+	1 to: (meths size) do: [ :i | 
+		methods add: (array detect: [ :m | 
+			(m name = ((meths at: i) at: 1)) &
+			(m desc = ((meths at: i) at: 2))
 		]).
 	].
 	^ methods.
