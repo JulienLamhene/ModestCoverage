@@ -1,5 +1,6 @@
 accessing
 allMethodsFrom: aFile
+	"Return a collection of Methods which is all the methods from the file put in parameter"
 	| array methods meths|
 	array := self collectMethodsFrom: aFile.
 	meths := (array collect: [ :m | { m name. m desc } ]) asSet asOrderedCollection sorted: [ :a :b | (a at:1) < (b at:1) ].

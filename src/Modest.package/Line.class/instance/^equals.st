@@ -1,3 +1,3 @@
 comparing
 = aLine
-	^ self number asInteger = aLine number asInteger
+	^ (self number asInteger = aLine number asInteger)

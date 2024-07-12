@@ -1,6 +1,13 @@
 accessing
 allLinesOfMethod: aMethod atClass: aClass
-	| collection lines |
-	collection := self findTestByClass: aClass andMethod: aMethod.
-	lines := ((collection collect: [ :t | (t accessMethod: aMethod atClass: aClass) lines]) flattened).
-	^ (lines collect: [ :line | line number asInteger ]) asSet asOrderedCollection sort.
+	"For a method provening from a File, this method will return all lines of this method"
+	| array collection lines |
+	array := self collectLinesOfMethod: aMethod atClass: aClass.
+	collection := (array collect: [ :l | l number asInteger ]) asSet asOrderedCollection sort.
+	lines := OrderedCollection new.
+	1 to: (aMethod totalLines) do: [ :i | 
+	lines add: (array detect: [:l | 
+		(l number asInteger = (collection at: i))
+	]).
+].
+	^ lines.
