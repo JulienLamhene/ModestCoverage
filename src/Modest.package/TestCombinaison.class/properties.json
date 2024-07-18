@@ -6,7 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"combi"
+		"combi",
+		"method",
+		"file"
 	],
 	"name" : "TestCombinaison",
 	"type" : "normal"
