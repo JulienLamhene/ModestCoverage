@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Modest-Base",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"combi",
+		"method",
+		"file",
+		"coverage"
+	],
+	"name" : "TestCombination",
+	"type" : "normal"
+}
