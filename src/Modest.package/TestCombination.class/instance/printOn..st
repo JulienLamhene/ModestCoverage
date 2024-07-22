@@ -6,6 +6,8 @@ printOn: aStream
 		nextPutAll: method name; cr;
 		nextPutAll: 'File : ';
 		nextPutAll: file; cr;
+		nextPutAll: 'Lines : ';
+		nextPutAll: (self unionCovered) asCommaString; cr;
 		nextPutAll: 'Coverage : ';
 		nextPutAll: coverage asString; cr;
 		nextPutAll: 'Combination : [';

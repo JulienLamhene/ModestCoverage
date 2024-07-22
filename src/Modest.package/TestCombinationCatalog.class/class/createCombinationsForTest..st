@@ -1,9 +1,8 @@
 instance creation
 createCombinationsForTest: testCollection
 	| testCombi |
-	testCombi := self new.
+	testCombi := Dictionary new.
 	1 to: (testCollection size) do: [ :i | 
-		testCombi combi at: i put: (testCollection combinations: i).
+		testCombi at: i put: (testCollection combinations: i).
 	].
 	^ testCombi.
-	

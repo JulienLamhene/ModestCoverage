@@ -1,4 +1,4 @@
 initialization
 initialize
 	super initialize.
-	combi := Dictionary new.
+	combinations := OrderedCollection new.
