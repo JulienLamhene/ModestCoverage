@@ -1,5 +1,5 @@
 instance creation
-createCombiOfMethod: aMethod fromFile: aFile withCol: testCollection
+createCombiOfMethod: aMethod fromFile: aFile withTests: testCollection
 	| combs aTestCombCat |
 	aTestCombCat := self new.
 	combs := self createCombinationsForTest: testCollection.
