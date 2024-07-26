@@ -1,8 +1,7 @@
 accessing
 evenlySpreadCombination
-	| maxComb testMaxSize file method|
-	file := (self at: 1) file. "It doesn't matter wich one the file and method studied are same for all combination, we just need the date -> to fix later"
-	method := (self at: 1) method.
-	maxComb:= self combinationsOfGreatestCoverage reject: [:c| c combi includes: (self singleTestFullCoverage: lines)].
-	testMaxSize := (maxComb last combi sorted: [ :t :t1 | (t linesOf: file) size > (t1 linesOf: file) size]) at: 1.
-	^ (maxComb allButLast reject: [:c | c combi includes: testMaxSize]) at: 1.
+	"Return the combination who is not the single test, but who get the maximum coverage"
+	| maxComb |
+	maxComb:= self combinationsOfGreatestCoverage reject: [:c| c combi includes: (self singleTestFullCoverage)].
+	maxComb := maxComb sorted: [:a :b | a combi size < b combi size].
+	^ maxComb at: 1.

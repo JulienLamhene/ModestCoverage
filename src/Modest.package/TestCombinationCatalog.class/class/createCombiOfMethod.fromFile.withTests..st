@@ -2,6 +2,7 @@ instance creation
 createCombiOfMethod: aMethod fromFile: aFile withTests: testCatalog
 	| combs aTestCombCat testCollection |
 	testCollection := testCatalog findTestByClass: aFile andMethod: aMethod.
+	testCollection := TestCatalog removeDuplicates: testCollection.
 	aTestCombCat := self new.
 	combs := self createCombinationsForTest: testCollection.
 	aTestCombCat lines: (testCatalog allLinesOfMethod: aMethod atClass: aFile).

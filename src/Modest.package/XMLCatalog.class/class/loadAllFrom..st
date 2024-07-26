@@ -15,4 +15,4 @@ loadAllFrom: aPath
 	home do: [ :file |
 		aXMLCollection add:
 			(XMLReport loadFrom: path on: file basename) ].
-	^ aXMLCollection
+	^ self new xmlReports: aXMLCollection.

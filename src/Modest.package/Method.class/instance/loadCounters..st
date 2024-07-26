@@ -1,5 +1,6 @@
 initialization
 loadCounters: aXMLElement
+	"Load the counters of our method"
 	1 to: (aXMLElement nodes size) do: [ :j |
 		| counterMet |
 		counterMet := CounterMetric new.

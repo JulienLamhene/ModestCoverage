@@ -1,5 +1,6 @@
 accessing
 avgCoverageOnMethod: aMethod atClass: aClass
+	"Calculate average coverage for a method from a file"
 	| avg collection |
 	collection := self findTestByClass: aClass andMethod: aMethod.
 	

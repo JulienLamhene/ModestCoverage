@@ -1,5 +1,6 @@
 initialization
 allMethods: xPathNodeSet
+	"Load the methods used by our test"
 	| coveredMeths |
 	xPathNodeSet do: [ :node |
 		coveredMeths :=((node nodes 

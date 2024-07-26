@@ -1,5 +1,6 @@
 initialization
 loadLinesOf: aClass for: aMethod
+	"For a certain method and file, will fill the test with the correct lines"
 	| lines start idx end|
 	
 	lines := coveredLines at: aClass.

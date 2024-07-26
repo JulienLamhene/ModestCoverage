@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-
+	"Define how is presented our class"
 	tests associationsDo: [ :asso |
 		| key value |
 		key := asso key.

@@ -1,5 +1,6 @@
 accessing
 unionCovered
+	"Establish the union for a combination"
 	| uniLines uniCombi |
 	uniLines := OrderedCollection new.
 	1 to: (self size) do: [ :i | 

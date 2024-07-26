@@ -1,6 +1,6 @@
 accessing
 fileName
-
+	"Return the name suffixed by '.java'"
 	| idx |
 	idx := (self name includesAny: '.')
 		       ifTrue: [ (name asText findString: '.' startingAt: 1) - 5 ]
