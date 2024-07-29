@@ -9,5 +9,5 @@ unionCovered
 		uniLines := (tmpLines union: uniLines) reject: [:elt | elt isNil].
 	].
 	uniCombi := self filterUnion: uniLines.
-	coverage := uniCombi sum: [ :l | l coveredInstruction asInteger ].
+	coverage ifNil: [ uniCombi sum: [ :l | l coveredInstruction asInteger ]].
 	^ uniCombi.

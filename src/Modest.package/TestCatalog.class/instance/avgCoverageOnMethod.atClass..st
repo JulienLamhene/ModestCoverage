@@ -6,4 +6,4 @@ avgCoverageOnMethod: aMethod atClass: aClass
 	
 	avg := ((collection sum: [ :t | (t accessMethod: aMethod atClass: aClass) coverageByLine ]) / collection size) asFloat.
 	
-	^ avg.
+	^ avg roundUpTo: 0.1.

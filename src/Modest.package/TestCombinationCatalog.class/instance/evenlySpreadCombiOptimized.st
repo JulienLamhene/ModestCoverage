@@ -1,6 +1,7 @@
 accessing
 evenlySpreadCombiOptimized
 	| maxComb testMaxSize file method|
+	"Qui utilise le plus de combinaisons possibles mais qui n'est pas l'un des tests de la plus petite combinaisons"
 	file := (self at: 1) file. "It doesn't matter wich one the file and method studied are same for all combination, we just need the date -> to fix later"
 	method := (self at: 1) method.
 	maxComb:= self combinationsOfGreatestCoverage reject: [:c| c combi includes: (self singleTestFullCoverage)].

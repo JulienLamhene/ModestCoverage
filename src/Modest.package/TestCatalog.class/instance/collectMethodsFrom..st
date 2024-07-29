@@ -1,5 +1,6 @@
 accessing
 collectMethodsFrom: aFile
+	"Collect all methods used in aFile"
 	| methods |
 	methods := Set new.
 	(tests do: [ :file | 

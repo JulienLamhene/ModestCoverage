@@ -12,4 +12,4 @@ printOn: aStream
 		nextPutAll: coverage asString; cr;
 		nextPutAll: 'Combination : [';
 		nextPutAll: (combi collect: [:t | t name]) asCommaString;
-		nextPutAll: ']'.
+		nextPutAll: ']';cr.
