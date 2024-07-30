@@ -1,9 +1,7 @@
-Notes about Criteria : "less tests"
-Sort test by size lines (number of lines used) from tested method
-take the first one, and then compare with following
-And kept those test who using a line the first one doesn't
+A TestCatalog is kind of a library for our tests, where for a category (a file), we find all the tests concerning this one file
+To put in a clear exemple, looking into the key 'FileA.java', will return all the tests using methods coming from this file
 
-Notes about Criteria : "smallest tests"
-With the code following, i take only the tests of a number of lines < to the total of the method
-Like that i can select the smallest tests, by comparing the one who use differents lines 
-If all lines of one are used in another i can get rid of the biggest one
+Internal Representation and Key Implementation Points.
+
+Instance Variables
+tests:		<Dictionnary> -> A Dictionnary with the relation file -> OrderedCollection of Test

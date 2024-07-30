@@ -1,27 +1,18 @@
-Please comment me using the following template inspired by Class Responsibility Collaborator (CRC) design:
+The representation of a method of a class, a functionnality of the class
 
-For the Class part:  State a one line summary. For example, "I represent a paragraph of text".
-
-For the Responsibility part: Three sentences about my main responsibilities - what I do, what I know.
-
-For the Collaborators Part: State my main collaborators and one line about how I interact with them.
+A file may have several methods however a test only some of them, so this method here conceive to indicate wich method are used by a test. 
+The informations it carry concern, to what line it start, and what lines are used
+We identifie a Method by his name and description.
 
 Public API and Key Messages
 
-- message one
-- message two
-- (for bonus points) how to create instances.
-
-   One simple example is simply gorgeous.
+- 
 
 Internal Representation and Key Implementation Points.
 
     Instance Variables
-	counters:		OrderedCollection of Counter
-	desc:		String
-	lines:		OrderedCollection of Lines
-	name:		String
-	startLine:		Integer
-
-
-    Implementation Points
+	counters:		OrderedCollection of Counter -> A counter are metric data carrying info about precise coverage of a method (like line, instruction, etc.)
+	desc:		ByteString -> The description, signature of the method
+	lines:		OrderedCollection of Lines -> The lines used by the method
+	name:		ByteString -> Its name
+	startLine:	ByteString -> The number of line where the method start
