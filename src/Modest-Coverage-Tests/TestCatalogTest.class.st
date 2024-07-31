@@ -1,7 +1,7 @@
 Class {
 	#name : #TestCatalogTest,
 	#superclass : #TestCase,
-	#category : #'Modest-Coverage-Test'
+	#category : #'Modest-Coverage-Tests'
 }
 
 { #category : #tests }
