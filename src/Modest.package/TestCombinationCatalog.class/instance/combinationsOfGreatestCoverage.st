@@ -1,4 +1,4 @@
-accessing
+accessing - coverage
 combinationsOfGreatestCoverage
 	"Return all combinations with maximum coverage"
 	| maxCov |
