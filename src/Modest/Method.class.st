@@ -29,7 +29,7 @@ Class {
 		'counters',
 		'lines'
 	],
-	#category : 'Modest-Base'
+	#category : #'Modest-Base'
 }
 
 { #category : #'instance creation' }
@@ -200,7 +200,6 @@ Method >> printString [
 
 { #category : #accessing }
 Method >> startLine [
-	"^ lines detect: [ :l | l number = startLine ]."
 	^ startLine.
 ]
 

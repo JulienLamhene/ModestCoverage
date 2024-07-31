@@ -1,7 +1,7 @@
 Class {
 	#name : #TestCombinationCatalogTest,
 	#superclass : #TestCase,
-	#category : 'Modest-Test'
+	#category : #'Modest-Test'
 }
 
 { #category : #initialization }
@@ -54,6 +54,20 @@ TestCombinationCatalogTest >> testSingleTestFullCoverage [
 	col := (self initializeTestCatalog) findTestByClass: 'Coffee.java' andMethod: ((combis at: 1) method).
 	self assert: (col includes: combis singleTestFullCoverage) equals: true.
 	self assert: (col at: 6) equals: combis singleTestFullCoverage.
+]
+
+{ #category : #running }
+TestCombinationCatalogTest >> testSmallestBestcombination [
+	"Return all combinations with maximum coverage"
+	| combis comb|
+	combis := TestCombinationCatalog new.
+	combis 
+		add: (TestCombination new coverage: 5);
+		add: (TestCombination new coverage: 1);
+		add: (TestCombination new coverage: 5);
+		add: (TestCombination new coverage: 3).
+	comb := (TestCombination new coverage: 5).
+	self assert: combis smallestBestCombination asString equals: comb asString.
 ]
 
 { #category : #running }
