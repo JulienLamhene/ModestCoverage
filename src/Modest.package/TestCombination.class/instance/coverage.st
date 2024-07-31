@@ -1,3 +1,0 @@
-accessing
-coverage
-	^ coverage
