@@ -8,8 +8,11 @@ Class {
 BaselineOfModest_Coverage >> baseline: spec [
 	<baseline>
 	spec for: #common do: [ 
-		spec package: 'Modest-Coverage'.
-		spec group: 'default'
-		with: #('Modest-Coverage')
+		spec 
+			package: 'Modest-Coverage' with: [ spec requires: #('XMLParser') ];
+			package: 'Modest-Coverage-Tests'.
+		spec 
+			group: 'default'
+			with: #('Modest-Coverage').
 	]
 ]
