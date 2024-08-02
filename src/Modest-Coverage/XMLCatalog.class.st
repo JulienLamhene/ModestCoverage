@@ -44,6 +44,22 @@ XMLCatalog class >> loadAllFrom: aPath [
 ]
 
 { #category : #initialization }
+XMLCatalog class >> loadAllFromBridge [
+	| bridge aXMLCollection |	
+	bridge := Modest_CoverageBridge xmlDirectory.
+
+	bridge := (bridge allChildren reject: [ :child | 
+		child extension ~= 'xml' 
+	]) sort.
+	
+	aXMLCollection := OrderedCollection new.
+	bridge do: [ :file |
+		aXMLCollection add:
+			(XMLReport loadFile: file basename) ].
+	^ self new xmlReports: aXMLCollection.
+]
+
+{ #category : #initialization }
 XMLCatalog >> initialize [
 	super initialize.
 	xmlReports := Dictionary new.

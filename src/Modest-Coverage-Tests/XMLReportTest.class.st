@@ -4,6 +4,19 @@ Class {
 	#category : #'Modest-Coverage-Tests'
 }
 
+{ #category : #initialization }
+XMLReportTest class >> loadReport [
+	| xmlReport nameF |
+	nameF := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
+	xmlReport := XMLReport loadFile: nameF.
+	^ xmlReport.
+]
+
+{ #category : #initialization }
+XMLReportTest >> loadReport [ 
+	^ self class loadReport.
+]
+
 { #category : #running }
 XMLReportTest >> testInitialize [
 	|xmlReport|
@@ -14,11 +27,9 @@ XMLReportTest >> testInitialize [
 
 { #category : #running }
 XMLReportTest >> testLoadFromOn [
-	|xmlReport path|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlReport := XMLReport loadFrom: path on: 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
+	| xmlReport |
+	xmlReport := self loadReport.
 	self assert: xmlReport name equals: 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	self assert: xmlReport path equals: path.
 	self assert: xmlReport fileName equals: 'Coffee'.
 ]
 
@@ -27,7 +38,7 @@ XMLReportTest >> testMethodAt [
 	|entity file document path xmlReport name|
 	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
 	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	xmlReport := self loadReport.
 	document := XMLDOMParser parse: (((path, name) asFileReference) readStream upToEnd).
 	entity := document xpath: '//class'.
 	file := document xpath: '//sourcefile'.

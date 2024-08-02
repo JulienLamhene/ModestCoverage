@@ -13,3 +13,13 @@ Class {
 Modest_CoverageBridge class >> initialize [
 	SessionManager default registerSystemClassNamed: self name
 ]
+
+{ #category : #'class initialization' }
+Modest_CoverageBridge class >> xmlDirectory [
+	^ self root / 'xmlReport2'.
+]
+
+{ #category : #'class initialization' }
+Modest_CoverageBridge class >> xmlDirectoryChildren [
+	^ self xmlDirectory children sort.
+]

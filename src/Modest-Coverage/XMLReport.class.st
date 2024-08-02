@@ -27,10 +27,17 @@ Class {
 		'name',
 		'path',
 		'entity',
-		'file'
+		'file',
+		'bridge'
 	],
 	#category : #'Modest-Coverage-Base'
 }
+
+{ #category : #initialization }
+XMLReport class >> loadFile: nameT [
+	"This method allow to create a XMLReport and load his report via our GitBridge - Modest-CoverageBridge"
+	^	self new name: nameT; loadReport.
+]
 
 { #category : #initialization }
 XMLReport class >> loadFrom: path on: nameT [
@@ -77,11 +84,23 @@ XMLReport >> fileName [
 	^ name copyFrom: 1 to: (idx - 5).
 ]
 
+{ #category : #private }
+XMLReport >> idxFileInBridge [	
+	|idx|
+	idx := (bridge collect: [ :f | 
+		| lastIdx fileName |
+		lastIdx := (f pathString) lastIndexOf: $/.
+		fileName := (f pathString) copyFrom: lastIdx + 1 to: (f pathString) size.
+	]) indexOf: name.
+	^ idx.
+]
+
 { #category : #initialization }
 XMLReport >> initialize [
 	super initialize.
 	name := ''.
 	path := ''.
+	bridge := Modest_CoverageBridge xmlDirectoryChildren.
 ]
 
 { #category : #initialization }
@@ -128,7 +147,7 @@ XMLReport >> path: xmlPath [
 { #category : #accessing }
 XMLReport >> report [
 	"This method allow to have full name in the purpose to have the xml report"
-	"We precise 'asFileReference' so that Pharo understand we wish to work with files
-	either way it will still consider it as a string"
-	^ (path, name) asFileReference.
+	(path isEmptyOrNil) 
+		ifTrue: [ ^ bridge at: (self idxFileInBridge) ]
+		ifFalse: [ ^ (path, name) asFileReference].
 ]

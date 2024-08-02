@@ -6,10 +6,8 @@ Class {
 
 { #category : #running }
 MethodTest >> testCoverageByLine [
-	| xmlReport test path method otherM|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlReport := XMLReport loadFrom: path on: 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	test := Test fromXMLReport: xmlReport.
+	| test method otherM|
+	test := TestTest loadTest.
 	otherM := (test methodsOf: 'Coffee.java') at: 1.
 	method := (test methodsOf: 'Coffee.java') at: 2.
 	self assert: method coverageByLine equals: 40.0.
@@ -38,30 +36,24 @@ MethodTest >> testInitialize [
 
 { #category : #running }
 MethodTest >> testNumberLines [
-	| xmlReport test path method |
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlReport := XMLReport loadFrom: path on: 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	test := Test fromXMLReport: xmlReport.
+	| test method |
+	test := TestTest loadTest.
 	method := (test methodsOf: 'Coffee.java') at: 2.
 	self assert: method numberLines equals: 4.
 ]
 
 { #category : #running }
 MethodTest >> testStartLine [
-	| xmlReport test path method |
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlReport := XMLReport loadFrom: path on: 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	test := Test fromXMLReport: xmlReport.
+	| test method |
+	test := TestTest loadTest.
 	method := (test methodsOf: 'Coffee.java') at: 2.
 	self assert: method startLine asInteger equals: 6.
 ]
 
 { #category : #running }
 MethodTest >> testTotalLines [
-	| xmlReport test path method |
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlReport := XMLReport loadFrom: path on: 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	test := Test fromXMLReport: xmlReport.
+	| test method |
+	test := TestTest loadTest.
 	method := (test methodsOf: 'Coffee.java') at: 2.
 	self assert: method totalLines equals: 10.
 ]

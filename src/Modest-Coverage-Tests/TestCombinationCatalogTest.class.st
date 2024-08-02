@@ -7,20 +7,11 @@ Class {
 { #category : #initialization }
 TestCombinationCatalogTest >> initializeEnv [
 	| testCatalog file method comb |
-	testCatalog := self initializeTestCatalog.
+	testCatalog := TestCatalogTest loadCatalog.
 	file := 'Coffee.java'.
 	method := (testCatalog allMethodsFrom: file) at: 2.
 	comb := TestCombinationCatalog createCombiOfMethod: method fromFile: file withTests: testCatalog.
 	^ comb.
-]
-
-{ #category : #initialization }
-TestCombinationCatalogTest >> initializeTestCatalog [
-	| xmlCatalog path testCatalog |
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlCatalog := XMLCatalog loadAllFrom: path.
-	testCatalog := TestCatalog fromXMLCatalog: xmlCatalog..
-	^ testCatalog.
 ]
 
 { #category : #running }
@@ -51,7 +42,7 @@ TestCombinationCatalogTest >> testInitialize [
 TestCombinationCatalogTest >> testSingleTestFullCoverage [
 	| combis col |
 	combis := self initializeEnv.
-	col := (self initializeTestCatalog) findTestByClass: 'Coffee.java' andMethod: ((combis at: 1) method).
+	col := (TestCatalogTest loadCatalog) findTestByClass: 'Coffee.java' andMethod: ((combis at: 1) method).
 	self assert: (col includes: combis singleTestFullCoverage) equals: true.
 	self assert: (col at: 6) equals: combis singleTestFullCoverage.
 ]

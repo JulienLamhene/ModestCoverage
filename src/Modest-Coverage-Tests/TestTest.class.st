@@ -4,12 +4,18 @@ Class {
 	#category : #'Modest-Coverage-Tests'
 }
 
+{ #category : #'instance creation' }
+TestTest class >> loadTest [
+	| test xmlReport |
+	xmlReport := XMLReportTest loadReport.
+	test:= Test fromXMLReport: xmlReport.
+	^ test.
+]
+
 { #category : #running }
 TestTest >> testAccessMethodAtClass [
-	| test path name xmlReport methods method meth|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test xmlReport methods method meth|
+	xmlReport := XMLReportTest loadReport.
 	test:= Test fromXMLReport: xmlReport.
 	methods := test methodsOf: 'Coffee.java'.
 	method := methods at: 2.
@@ -36,37 +42,31 @@ TestTest >> testCompareWithOnMethod [
 
 { #category : #running }
 TestTest >> testEquals [
-	| test test2 path name xmlReport |
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test test2 name xmlReport |
+	xmlReport := XMLReportTest loadReport.
 	test := Test fromXMLReport: xmlReport.
 	name := 'CoffeeTest.testCalcCoffeeIngredient_2_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	xmlReport := XMLReport loadFile: name.
 	test2 := Test fromXMLReport: xmlReport.
 	self assert: test equals: test2.
 	name := 'CoffeeTest.testCalcCoffeeIngredient_5.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	xmlReport := XMLReport loadFile: name.
 	test2 := Test fromXMLReport: xmlReport.
 	self assert: test = test2 equals: false.
 ]
 
 { #category : #running }
 TestTest >> testFileName [
-	| test path name xmlReport|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test xmlReport|
+	xmlReport := XMLReportTest loadReport.
 	test:= Test fromXMLReport: xmlReport.
 	self assert: test fileName equals: 'Coffee.java'.
 ]
 
 { #category : #running }
 TestTest >> testFromXMLReport [
-	| test path name xmlReport|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test xmlReport|
+	xmlReport := XMLReportTest loadReport.
 	test:= Test fromXMLReport: xmlReport.
 	self assert: test name equals: 'CoffeeTest.testCalcCoffeeIngredient_2'.
 	self assert: test coveredLines size equals: 1.
@@ -84,10 +84,8 @@ TestTest >> testInitialize [
 
 { #category : #running }
 TestTest >> testLinesOf [
-	| test path name xmlReport lines collection|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test xmlReport lines collection|
+	xmlReport := XMLReportTest loadReport.
 	test:= Test fromXMLReport: xmlReport.
 	lines := (test linesOf: 'Coffee.java') collect: [:l | l number asInteger ].
 	collection := OrderedCollection new.
@@ -97,10 +95,8 @@ TestTest >> testLinesOf [
 
 { #category : #running }
 TestTest >> testMethodsOf [
-	| test path name xmlReport methods collection|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test xmlReport methods collection|
+	xmlReport := XMLReportTest loadReport.
 	test:= Test fromXMLReport: xmlReport.
 	methods := test methodsOf: 'Coffee.java'.
 	methods := methods collect: [:m | m name ].
@@ -111,10 +107,8 @@ TestTest >> testMethodsOf [
 
 { #category : #running }
 TestTest >> testMostTestedFile [
-	| test path name xmlReport mostTested|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	name := 'CoffeeTest.testCalcCoffeeIngredient_2.xml'.
-	xmlReport := XMLReport loadFrom: path on: name.
+	| test xmlReport mostTested|
+	xmlReport := XMLReportTest loadReport.
 	test:= Test fromXMLReport: xmlReport.
 	mostTested := test mostTestedFile.
 	self assert: mostTested equals: 'Coffee.java'.
