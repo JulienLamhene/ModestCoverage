@@ -1,11 +1,11 @@
 Class {
-	#name : #'BaselineOfModest_Coverage',
+	#name : #BaselineOfModestCoverage,
 	#superclass : #BaselineOf,
 	#category : #'BaselineOfModest-Coverage'
 }
 
 { #category : #baselines }
-BaselineOfModest_Coverage >> baseline: spec [
+BaselineOfModestCoverage >> baseline: spec [ 
 	<baseline>
 	spec for: #common do: [ 
 		spec 
