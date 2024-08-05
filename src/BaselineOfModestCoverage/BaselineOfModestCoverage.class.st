@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfModestCoverage,
 	#superclass : #BaselineOf,
-	#category : #'BaselineOfModest-Coverage'
+	#category : #BaselineOfModestCoverage
 }
 
 { #category : #baselines }
