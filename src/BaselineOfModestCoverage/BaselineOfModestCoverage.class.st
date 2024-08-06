@@ -12,8 +12,8 @@ BaselineOfModestCoverage >> baseline: spec [
 			baseline: 'GitBridge'
 			with: [ spec repository: 'github://jecisc/GitBridge:v1.x.x/src' ].
 		spec 
-			baseline: 'XMLParser' 
-			with: [ spec repository: 'github.com/pharo-contributions/XML-XMLParser/src' ].
+			baseline: 'XML-Parser' 
+			with: [ spec repository: 'github://pharo-contributions/XML-XMLParser:v3.6.2/src' ].
 		spec 
 			package: 'Modest-Coverage' with: [ spec requires: #('GitBridge' 'XML-Parser') ];
 			package: 'Modest-Coverage-Tests'.
