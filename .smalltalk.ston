@@ -6,5 +6,6 @@ SmalltalkCISpec {
       #directory : 'src',
       #platforms : [ #pharo ]
     }
-  ]
+  ],
+  #failOnZeroTests: false
 }
