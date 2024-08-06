@@ -1,10 +1,10 @@
 SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
-      #failOnZeroTests: false,
       #baseline : 'ModestCoverage',
       #onConflict : #useIncoming,
       #directory : 'src',
+      #failOnZeroTests: false,
       #platforms : [ #pharo ]
     }
   ],
