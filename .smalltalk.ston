@@ -1,5 +1,4 @@
 SmalltalkCISpec {
-  #failOnZeroTests: false,
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'ModestCoverage',
