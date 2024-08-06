@@ -4,10 +4,15 @@ SmalltalkCISpec {
       #baseline : 'ModestCoverage',
       #onConflict : #useIncoming,
       #directory : 'src',
-      #platforms : [ #pharo ]
+      #platforms : [ #pharo ],
+      #registerInIceberg : true 
     }
   ],
   #testing : {
+    #coverage : {
+      #packages : [ 'Modest-Coverage-.*' ],
+      #format : #lcov
+    },
     #failOnZeroTests : false
   }
 }
