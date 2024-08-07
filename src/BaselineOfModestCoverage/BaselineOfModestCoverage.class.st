@@ -17,9 +17,11 @@ BaselineOfModestCoverage >> baseline: spec [
 		spec 
 			baseline: 'XMLParser' 
 			with: [ spec repository: 'github://pharo-contributions/XML-XMLParser:v3.6.2/src' ].
+
 		spec 
-			package: 'Modest-Coverage' with: [ spec requires: #('GitBridge' 'XMLParser' 'XPath') ];
+			package: 'Modest-Coverage' with: [ spec requires: #('GitBridge' 'XPath' 'XMLParser') ];
 			package: 'Modest-Coverage-Tests' with: [ spec requires: #('Modest-Coverage') ].
+
 		spec 
 			group: 'default'
 			with: #('Modest-Coverage' 'Modest-Coverage-Tests').
