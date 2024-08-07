@@ -8,8 +8,8 @@ To install Modest-Coverage in your Pharo image :
 
 ```smalltalk
 Metacello new
-  baseline: 'Modest-Coverage';
-  repository: 'https://github.com/JulienLamhene/Modest_Coverage';
+  baseline: 'ModestCoverage';
+  repository: 'https://github.com/JulienLamhene/ModestCoverage';
   load.
 ```
 
