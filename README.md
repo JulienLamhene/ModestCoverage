@@ -10,6 +10,7 @@ To install Modest-Coverage in your Pharo image :
 Metacello new
   baseline: 'ModestCoverage';
   repository: 'github.com://JulienLamhene/ModestCoverage/src';
+  onConflictUseIncoming; "Or onConflictUseLoaded depending the config you wish to keep"
   load.
 ```
 
