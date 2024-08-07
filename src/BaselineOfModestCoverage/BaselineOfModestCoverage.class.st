@@ -13,10 +13,10 @@ BaselineOfModestCoverage >> baseline: spec [
 			with: [ spec repository: 'github://jecisc/GitBridge:v1.x.x/src' ].
 		spec
 			baseline: 'XPath'
-			with: [ spec repository: 'github://pharo-contributions/XML-XPath:vx.x.x/src' ].
+			with: [ spec repository: 'github://pharo-contributions/XML-XPath:v2.x.x/src' ].
 		spec 
 			baseline: 'XMLParser' 
-			with: [ spec repository: 'github://pharo-contributions/XML-XMLParser:vx.x.x/src' ].
+			with: [ spec repository: 'github://pharo-contributions/XML-XMLParser:v3.x.x/src' ].
 
 		spec 
 			package: 'Modest-Coverage' with: [ spec requires: #('GitBridge' 'XPath' 'XMLParser')];
