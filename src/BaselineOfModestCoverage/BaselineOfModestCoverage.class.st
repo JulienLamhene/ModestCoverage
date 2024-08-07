@@ -19,6 +19,6 @@ BaselineOfModestCoverage >> baseline: spec [
 			package: 'Modest-Coverage-Tests' with: [ spec requires: #('Modest-Coverage') ].
 		spec 
 			group: 'default'
-			with: #('Modest-Coverage').
+			with: #('Modest-Coverage' 'Modest-Coverage-Tests').
 	]
 ]
