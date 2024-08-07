@@ -28,9 +28,8 @@ TestTest >> testAccessMethodAtClass [
 
 { #category : #running }
 TestTest >> testCompareWithOnMethod [
-	| xmlCatalog path testCatalog tests meth|
-	path := '/home/julien/Documents/Stage_Inria/CoverageJCC/MyCoverageProject/xmlReport2/'.
-	xmlCatalog := XMLCatalog loadAllFrom: path.
+	| xmlCatalog testCatalog tests meth|
+	xmlCatalog := XMLCatalog loadAllFromBridge.
 	testCatalog := TestCatalog fromXMLCatalog: xmlCatalog.
 	meth := (testCatalog allMethodsFrom: 'Coffee.java') at: 2.
 	tests := testCatalog findTestByClass: 'Coffee.java' andMethod: meth.
