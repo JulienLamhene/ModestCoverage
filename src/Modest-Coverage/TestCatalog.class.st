@@ -183,6 +183,7 @@ TestCatalog >> printOn: aStream [
 
 { #category : #accessing }
 TestCatalog >> selectRandomFile [
+	"The keys in the Dictionnary tests are names of files, this method return one of them in random"
 	^ tests keys atRandom.
 ]
 

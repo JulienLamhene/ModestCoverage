@@ -25,6 +25,7 @@ Class {
 
 { #category : #initialization }
 XMLCatalog class >> loadAllFrom: aPath [
+	"Is what create our instance of XMLCatalog, based on a path given by the user"
 	| home aXMLCollection path|	
 	home := ((FileLocator root) / (aPath withoutPrefix: '/')).
 	path := home pathString , '/'.
@@ -45,6 +46,7 @@ XMLCatalog class >> loadAllFrom: aPath [
 
 { #category : #initialization }
 XMLCatalog class >> loadAllFromBridge [
+	"Create our instance of XMLCatalog, based our GitBridge, if user have no XML reports on its own, or just want to uses simple example"
 	| bridge aXMLCollection |	
 	bridge := Modest_CoverageBridge xmlDirectory.
 

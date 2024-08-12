@@ -27,6 +27,7 @@ Class {
 
 { #category : #'instance creation' }
 TestCombinationCatalog class >> createCombiOfMethod: aMethod fromFile: aFile withTests: testCatalog [
+	"Create our instance of TestCombinationCatalog, by making sure to already removing duplicates tests, and only taking tests concerning aMethod from aFile of testCatalog"
 	| combs aTestCombCat testCollection |
 	testCollection := testCatalog findTestByClass: aFile andMethod: aMethod.
 	testCollection := TestCatalog removeDuplicates: testCollection.
@@ -47,6 +48,7 @@ TestCombinationCatalog class >> createCombiOfMethod: aMethod fromFile: aFile wit
 
 { #category : #'instance creation' }
 TestCombinationCatalog class >> createCombinationsForTest: testCollection [
+	"From a collection  of testn establish a dictionnary of test with as key an index, and value combinations from this size of index"
 	| testCombi |
 	testCombi := Dictionary new.
 	1 to: (testCollection size) do: [ :i | 
@@ -57,11 +59,13 @@ TestCombinationCatalog class >> createCombinationsForTest: testCollection [
 
 { #category : #adding }
 TestCombinationCatalog >> add: aTestCombi [
+	"Add a TestCombination to our catalog"
 	combinations add: aTestCombi.
 ]
 
 { #category : #accessing }
 TestCombinationCatalog >> at: idx [
+	"Access the TestCombination founded to the index"
 	^ combinations at: idx.
 ]
 
@@ -110,6 +114,7 @@ TestCombinationCatalog >> evenlySpreadCombination [
 
 { #category : #private }
 TestCombinationCatalog >> fileStudied [
+	"No matter the combination, it's always the same file who is examined, this method return it"
 	^ (self at: 1) file.
 ]
 
@@ -138,6 +143,7 @@ TestCombinationCatalog >> lines: l [
 
 { #category : #private }
 TestCombinationCatalog >> methodStudied [
+	"No matter the combination, it's always the same examined method, this method return it"
 	^ (self at: 1) method.
 ]
 
